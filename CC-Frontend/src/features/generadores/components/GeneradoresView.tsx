@@ -15,7 +15,8 @@ export default function GeneradoresView({ onAddNew }: GeneradoresViewProps) {
     "SUB",
     "Equipo",
     "Sitio/Pozo",
-    "Folio Almacén",
+    "Color",
+    "Status",
   ];
 
   return (

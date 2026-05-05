@@ -37,6 +37,14 @@
   display: none;
 }
 
+.sectionTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: -16px;
+  padding-left: 4px;
+}
+
 .formHeader {
   display: flex;
   gap: 32px;

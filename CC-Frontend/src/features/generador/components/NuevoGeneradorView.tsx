@@ -24,7 +24,8 @@ export default function NuevoGeneradorView({ onBack }: NuevoGeneradorViewProps) 
     "SUB",
     "Equipo",
     "Sitio/Pozo",
-    "Folio Almacén",
+    "Color",
+    "Status",
   ];
 
   return (
@@ -45,6 +46,10 @@ export default function NuevoGeneradorView({ onBack }: NuevoGeneradorViewProps) 
         <div className={styles.field}>
           <label htmlFor="fecha">Fecha de creación</label>
           <input type="date" id="fecha" />
+        </div>
+        <div className={styles.field}>
+          <label htmlFor="contrato">Contrato</label>
+          <input type="text" id="contrato" />
         </div>
         <div className={styles.field}>
           <label htmlFor="orden">N° orden</label>
@@ -81,6 +86,40 @@ export default function NuevoGeneradorView({ onBack }: NuevoGeneradorViewProps) 
                 <td key={index}></td>
               ))}
             </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 className={styles.sectionTitle}>Partidas de cobro</h2>
+      <div className={styles.tableSection}>
+        <div className={styles.tableHeaderActions}>
+          <button 
+            className={styles.addButton} 
+            title="Agregar partida"
+            onClick={() => setIsModalOpen(true)}
+          >
+            +
+          </button>
+        </div>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              {headers.map((header) => (
+                 <th key={header}>{header}</th>
+               ))}
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               {headers.map((_, index) => (
+                 <td key={index}></td>
+               ))}
+             </tr>
+             <tr>
+               {headers.map((_, index) => (
+                 <td key={index}></td>
+               ))}
+             </tr>
           </tbody>
         </table>
       </div>

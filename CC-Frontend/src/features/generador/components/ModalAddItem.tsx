@@ -8,8 +8,9 @@ interface ModalAddItemProps {
 }
 
 export default function ModalAddItem({ onClose }: ModalAddItemProps) {
-  // Estado local para manejar las cantidades de las filas de ejemplo
+  // Estado local para manejar las cantidades y el filtro
   const [quantities, setQuantities] = useState<number[]>([0, 0, 0, 0]);
+  const [filter, setFilter] = useState<"todos" | "oficial" | "no-oficial">("todos");
 
   const updateQty = (index: number, delta: number) => {
     setQuantities(prev => {
@@ -21,9 +22,15 @@ export default function ModalAddItem({ onClose }: ModalAddItemProps) {
 
   const headers = [
     "Descripcion",
+    "Número de parte",
+    "Unidad de medida",
     "Equipo",
-    "Ensamble",
-    "Costo",
+    "Contrato",
+    "Costo adquisición",
+    "Moneda",
+    "Costo anexo",
+    "Porcentaje",
+    "Tipo de refacción",
     "Cantidad",
     "" // Columna para los botones +/-
   ];
@@ -35,9 +42,31 @@ export default function ModalAddItem({ onClose }: ModalAddItemProps) {
         
         <div className={styles.header}>
           <div className={styles.searchBox}>
-            <input type="text" placeholder="Buscar" />
+            <input type="text" placeholder="Buscar concepto..." />
           </div>
-          <button className={styles.addButton}>Agregar</button>
+          
+          <div className={styles.filterContainer}>
+            <button 
+              className={`${styles.filterBtn} ${filter === "todos" ? styles.filterBtnActive : ""}`}
+              onClick={() => setFilter("todos")}
+            >
+              Todos
+            </button>
+            <button 
+              className={`${styles.filterBtn} ${filter === "oficial" ? styles.filterBtnActive : ""}`}
+              onClick={() => setFilter("oficial")}
+            >
+              Oficial
+            </button>
+            <button 
+              className={`${styles.filterBtn} ${filter === "no-oficial" ? styles.filterBtnActive : ""}`}
+              onClick={() => setFilter("no-oficial")}
+            >
+              No oficial
+            </button>
+          </div>
+
+          <button className={styles.addButton}>Agregar seleccionados</button>
         </div>
 
         <div className={styles.tableContainer}>
@@ -56,7 +85,23 @@ export default function ModalAddItem({ onClose }: ModalAddItemProps) {
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td style={{ textAlign: 'center' }}>{qty > 0 ? qty : ""}</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <span style={{ 
+                      color: index % 2 === 0 ? 'var(--accent-neon)' : 'var(--text-muted)',
+                      fontSize: '0.8rem',
+                      textTransform: 'uppercase'
+                    }}>
+                      {index % 2 === 0 ? 'Oficial' : 'No oficial'}
+                    </span>
+                  </td>
+                  <td style={{ textAlign: 'center', fontWeight: 'bold', color: 'var(--accent-neon)' }}>
+                    {qty > 0 ? qty : ""}
+                  </td>
                   <td>
                     <div className={styles.qtyCell}>
                       <button className={styles.qtyBtn} onClick={() => updateQty(index, 1)}>+</button>
