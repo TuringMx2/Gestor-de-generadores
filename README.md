@@ -1,0 +1,2 @@
+# Gestor-de-generadores
+Gestor
