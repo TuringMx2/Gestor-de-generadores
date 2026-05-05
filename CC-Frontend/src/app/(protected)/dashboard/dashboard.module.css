@@ -1,0 +1,236 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    "sidebar topbar"
+    "sidebar content";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+  grid-area: sidebar;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-main);
+  width: 70px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.sidebar:hover {
+  width: 260px;
+}
+
+.sidebarHeader {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 22px;
+  border-bottom: 1px solid var(--border-main);
+  white-space: nowrap;
+  gap: 16px;
+}
+
+.logoIcon {
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+  color: var(--accent-neon);
+}
+
+.sidebarTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar:hover .sidebarTitle {
+  opacity: 1;
+}
+
+.nav {
+  flex: 1;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 22px;
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  gap: 16px;
+}
+
+.navIconWrapper {
+  min-width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navIcon {
+  width: 20px;
+  height: 20px;
+  color: inherit;
+  transition: filter 0.2s ease;
+}
+
+.navItem:hover, .activeNavItem {
+  background-color: var(--accent-soft);
+  color: var(--accent-neon);
+}
+
+.navItem:hover .navIcon, .activeNavItem .navIcon {
+  filter: drop-shadow(0 0 5px var(--accent-glow));
+}
+
+.activeNavItem {
+  border-left-color: var(--accent-neon);
+}
+
+.navText {
+  font-weight: 500;
+  font-size: 0.95rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar:hover .navText {
+  opacity: 1;
+}
+
+/* --- TOPBAR --- */
+.topbar {
+  grid-area: topbar;
+  height: 70px;
+  background-color: var(--bg-main);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 40px;
+  border-bottom: 1px solid var(--border-main);
+  backdrop-filter: blur(8px);
+}
+
+.profileContainer {
+  position: relative;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--surface-card);
+  border: 1px solid var(--border-main);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-neon);
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.avatar:hover {
+  border-color: var(--accent-neon);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.dropdown {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  background-color: var(--surface-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  width: 180px;
+  overflow: hidden;
+  border: 1px solid var(--border-main);
+  z-index: 1000;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdownItem {
+  padding: 12px 16px;
+  color: var(--text-main);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.dropdownItem:hover {
+  background-color: var(--surface-hover);
+  color: var(--accent-neon);
+}
+
+/* --- CONTENT --- */
+.content {
+  grid-area: content;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+
+.constructionCard {
+  background-color: var(--surface-card);
+  padding: 60px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  border: 1px solid var(--border-main);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.constructionText {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.constructionSubtext {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    height: 100%;
+    width: 0;
+  }
+  
+  .sidebar:hover {
+    width: 260px;
+  }
+}

@@ -1,0 +1,120 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.searchBox {
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  width: 450px;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.searchBox:focus-within {
+  border-color: var(--accent-neon);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.searchBox input {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+}
+
+.searchBox input::placeholder {
+  color: var(--text-dim);
+}
+
+.tableSection {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.tableHeaderActions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 0 12px 0;
+}
+
+.addButton {
+  background-color: var(--accent-neon);
+  color: #000;
+  border: none;
+  border-radius: var(--radius-sm);
+  width: 36px;
+  height: 36px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.addButton:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-neon);
+}
+
+.tableContainer {
+  background-color: var(--surface-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-main);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background-color: var(--surface-hover);
+}
+
+.table th {
+  color: var(--accent-neon);
+  padding: 16px 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-main);
+}
+
+.table tbody td {
+  border-bottom: 1px solid var(--border-main);
+  height: 55px;
+  padding: 12px 20px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.table tbody tr:hover td {
+  background-color: var(--surface-hover);
+  color: var(--text-main);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}

@@ -1,0 +1,179 @@
+.container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 24px 0;
+  width: 100%;
+}
+
+.panel {
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  width: 400px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.value {
+  color: var(--text-main);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.ivaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid var(--border-main);
+  border-bottom: 1px solid var(--border-main);
+}
+
+/* Switch / Toggle Moderno */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-main);
+  transition: .4s;
+  border-radius: 34px;
+  border: 1px solid var(--border-main);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 2px;
+  background-color: var(--text-dim);
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--accent-soft);
+  border-color: var(--accent-neon);
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+  background-color: var(--accent-neon);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.totalRow {
+  margin-top: 8px;
+  padding-top: 16px;
+}
+
+.totalLabel {
+  color: var(--text-main);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.totalValue {
+  color: var(--accent-neon);
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.actionButton {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--border-main);
+  transition: all 0.2s ease;
+}
+
+.saveBtn {
+  background-color: var(--surface-hover);
+  color: var(--text-main);
+}
+
+.saveBtn:hover {
+  border-color: var(--text-muted);
+  background-color: var(--bg-main);
+}
+
+.deleteBtn {
+  background-color: rgba(255, 68, 68, 0.1);
+  color: #ff4444;
+  border-color: rgba(255, 68, 68, 0.2);
+}
+
+.deleteBtn:hover {
+  background-color: #ff4444;
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 68, 68, 0.4);
+}
+
+.approveBtn {
+  background-color: var(--accent-neon);
+  color: #000;
+  border: none;
+}
+
+.approveBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-neon);
+  filter: brightness(1.1);
+}
+
+.partidaLabel {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.partidaPlaceholder {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+}

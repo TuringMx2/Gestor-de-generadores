@@ -1,0 +1,81 @@
+:root {
+  /* Palette SaaS Premium Dark */
+  --bg-main: #0c0c0d;
+  --bg-sidebar: #121214;
+  --surface-card: #1a1a1e;
+  --surface-hover: #25252a;
+  
+  /* Neon Accents */
+  --accent-neon: #d4ff33; /* Verde/Amarillo neón de la imagen */
+  --accent-glow: rgba(212, 255, 51, 0.35);
+  --accent-soft: rgba(212, 255, 51, 0.1);
+  
+  /* Text */
+  --text-main: #ffffff;
+  --text-muted: #a0a0ab;
+  --text-dim: #71717a;
+  
+  /* Elements */
+  --border-main: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  
+  /* Shadows & Effects */
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+  --shadow-neon: 0 0 20px var(--accent-glow);
+  --glass-bg: rgba(26, 26, 30, 0.7);
+  --glass-blur: blur(12px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-card);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-dim);
+}
+
+/* Base Styles */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+input, select, textarea {
+  font-family: inherit;
+}
