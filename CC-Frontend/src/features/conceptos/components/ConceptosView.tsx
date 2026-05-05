@@ -5,9 +5,14 @@ import styles from "./conceptos.module.css";
 export default function ConceptosView() {
   const headers = [
     "Descripcion",
+    "Número de parte",
+    "U. M",
     "Equipo",
-    "Ensamble",
-    "Costo",
+    "Contrato",
+    "Costo adquisición",
+    "Moneda",
+    "Costo anexo",
+    "Porcentaje",
     "Tipo de refacción",
     "" // Columna vacía adicional
   ];
@@ -32,6 +37,11 @@ export default function ConceptosView() {
           <tbody>
             {[1, 2, 3, 4, 5].map((row) => (
               <tr key={row}>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
